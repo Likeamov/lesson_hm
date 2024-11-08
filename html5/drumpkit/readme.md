@@ -6,6 +6,7 @@
 ## 编写静态页面
 - 先写html结构，再写样式
 - 职责分离
+
 - html 是演员
  - 盒子
   div 盒子
@@ -28,5 +29,23 @@
  .keys>.key>div+span.sound
 
 - 现有个毛坯房(结构),需要装修(样式)
- 
+
+- html 标签分两类
+ - 块级元素 默认占据整个一行 div等 从上到下
+ - 行内元素 默认不换行 span等 从左到右
+
+-display：flex
+ 启动弹性布局，子元素在一起  
+
+
+-盒模型
+ border 边框
+ padding 内边距
+ content 内容
+
+外部 margin
+
+
+
+
  
