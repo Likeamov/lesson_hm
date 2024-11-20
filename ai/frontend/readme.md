@@ -10,5 +10,20 @@
   css animation container keyframes fontend
 
 
-- brain.js 浏览器端可以运行的神经网络库
+  - brain.js 浏览器端可以运行的神经网络库
+
+
+- 前端相信端模型的未来
+  - openai 付费
+  - moda 开源模型、
+  - 手机端,  电脑端,  穿戴设备,  AGI 端侧模型
+    可以立刻提升 设备的智能化、
+    brain.js  有哪些能力？
+      - 投喂数据训练一下,
+      data json数组的形式 最简单
+      - 实例化 一个神经网络
+      - train  方法调用一下 简单
+      - run nlp 推理能力
+      - 结果分类
+      
 
