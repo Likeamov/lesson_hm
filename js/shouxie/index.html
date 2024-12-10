@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var a = {
+        name:'Cherry',
+        // call与apply的区别
+        // apply 一次性给,以数组的形式
+        // call的参数是一个个给call(thisBinder,a,b,c,....参数) apply的参数是一个数组
+        
+        fn:function(a,b){
+            console.log(this.name)
+            // a [1,2] + undefined
+            // + 两边都是数字就是加法,如果不是呢？连接运算符
+            console.log(a+b)
+        }
+    }
+    var b = a.fn;
+    // 指定this
+    // 立即执行
+    // 参数  apply和call是js指定this的方法
+    console.log(b.apply(a,[1,2]))
+    console.log(b.call(a,[1,2]))
+    console.log(b.call(a,1,2))
+    console.log(b.bind(a,1,2))
+    console.log(b.bind(a)(1,2))
+    </script>
+</body>
+</html>
