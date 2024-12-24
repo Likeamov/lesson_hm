@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D 地球</title>
+    <!-- 画地球 选择框架 加速 -->
+    <script src="https://cdn.bootcss.com/three.js/r83/three.min.js"></script>
+</head>
+<body>
+    <canvas id="webglcanvas"></canvas>
+    <script>
+        // 3D 地球
+        // 3D 时间就是镜头拍出的世界,导演
+        let canvas, // 3D 容器
+        camera,   // 镜头
+        scene,   // 场景
+        renderer, // 渲染器
+        group; // 组
+        // 物品
+        let mouseX = 0, mouseY = 0; // 鼠标当前位置
+        let prevMouseX = 0, prevMouseY = 0; // 鼠标上一帧位置
+        let isDragging = false; // 是否正在拖拽
+        // 球星
+        let windowHalfX = window.innerWidth / 2;
+        let windowHalfY = window.innerHeight / 2;
+        init();
+        animate();
+
+        // 准备
+        function init() {
+            canvas = document.getElementById("webglcanvas"); // DOM
+            // 镜头
+            camera = new THREE.PerspectiveCamera(60, // 实例化 照相机
+                window.innerWidth / window.innerHeight, 1, 2000
+            )
+            // 相机离scene的距离
+            camera.position.z = 500; // 镜头距离
+
+            scene = new THREE.Scene(); // 实例化 场景
+            scene.background = new THREE.Color(0xffffff) // 背景色
+
+            group = new THREE.Group();//组
+            scene.add(group); // 场景添加组
+
+            // 纹理加载
+            let loader = new THREE.TextureLoader(); //简单的加载器
+            loader.load('land_ocean_ice_cloud_2048.jpg', function (texture) {
+                let geometry = new THREE.SphereGeometry(200, 20, 20); // 球体
+
+                // 材质
+                let material = new THREE.MeshBasicMaterial({
+                    map: texture,
+                })
+                let mesh = new THREE.Mesh(geometry, material); // 网格
+                group.add(mesh)
+
+                // 渲染 目标是canvas
+                renderer = new THREE.WebGLRenderer({
+                    canvas: canvas,
+                    antialias: true,
+                })
+                renderer.setSize(window.innerWidth, window.innerHeight)
+
+                // 监听鼠标按下事件
+                document.addEventListener('mousedown', onDocumentMouseDown, false);
+                // 监听鼠标移动事件
+                document.addEventListener('mousemove', onDocumentMouseMove, false);
+                // 监听鼠标释放事件
+                document.addEventListener('mouseup', onDocumentMouseUp, false);
+            })
+        }
+
+        function onDocumentMouseDown(event) {
+            isDragging = true;
+            prevMouseX = event.clientX - windowHalfX;
+            prevMouseY = event.clientY - windowHalfY;
+        }
+
+        function onDocumentMouseMove(event) {
+            if (isDragging) {
+                mouseX = event.clientX - windowHalfX;
+                mouseY = event.clientY - windowHalfY;
+            }
+        }
+
+        function onDocumentMouseUp() {
+            isDragging = false;
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            if (isDragging) {
+                // 根据鼠标移动的差值更新地球的旋转角度
+                group.rotation.y += (mouseX - prevMouseX) * 0.001;
+                group.rotation.x += (mouseY - prevMouseY) * 0.001;
+                prevMouseX = mouseX;
+                prevMouseY = mouseY;
+            }
+
+            renderer.render(scene, camera);
+        }
+    </script>
+</body>
+</html>
