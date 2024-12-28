@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BFC</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+}
+.box{
+    width: 200px;
+    height: 200px;
+    background-color:lightblue;
+    border: 1px solid #000;
+}
+.box1{
+    margin-bottom: 50px;
+}
+.box2{
+    margin-top: 30px;
+}
+</style>
+</head>
+<body>
+    <div class="box box1">Box 1</div>
+    <div style="overflow:hidden;">
+    <div class="box box2" style="overflow: hidden;">Box 2</div>
+</body>
+</html>
