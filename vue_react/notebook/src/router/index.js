@@ -3,7 +3,6 @@ import Data from '@/views/Data'
 import User from '@/views/User'
 import Login from '@/views/Login'
 
-
 const routes = [
   {
     path: '/',
@@ -12,6 +11,10 @@ const routes = [
   {
     path: '/data',
     component: Data
+  },
+  {
+    path: '/user',
+    component: User
   },
   {
     path: '/user',
