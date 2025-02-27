@@ -245,7 +245,6 @@ h1 {
   border-radius: 12px;
   padding: 16px;
   background: #fff;
-  margin-top: 15px;
 }
 
 #conversation-list button {
@@ -299,4 +298,3 @@ h1 {
   border-color: #0056b3;
   outline: none;
 }
-

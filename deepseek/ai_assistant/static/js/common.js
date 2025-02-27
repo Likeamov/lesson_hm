@@ -29,9 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
     })
   })
   // 打字机效果
-  const  typeMessage = (bubble, content = "", callback) => {
+  const  typeMessage = (bubble, content, callback) => {
     let index = 0;
-    console.log(content, '/////')
     const intervalId = setInterval(() => {
       if (index < content.length) {
         bubble.textContent += content.charAt(index++);
@@ -78,7 +77,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // 添加消息 chat-log
   const appendMessage = (role, content, type='save') => {
-    // console.log(role, content, "......")
     const messageWrapper = document.createElement('div');
     messageWrapper.classList.add('message', role); 
 
@@ -101,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
     chatLogElement.scrollTop = chatLogElement.scrollHeight;
     if (type === 'save') {
       saveChatLog(role, content) // bug 原因
-    }
+     }
     
   } 
   // 发送消息 调用接口
@@ -177,7 +175,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const loadChatLog = () => {
     const chatLog = JSON.parse(localStorage.getItem('chatLog')) || [];
     // 负值， 后面开始
-    console.log(chatLog, "||||||||||||||||")
     chatLog.slice(-MESSAGE_LIMIT).forEach(
       ({ role, content }) => appendMessage(role, content, 'init')
     )
@@ -205,7 +202,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const loadConversationList = () => {
     const chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
-    // console.log(chatHistory, "////")
     chatHistory.forEach((conversation, index) => {
       const button = document.createElement('button');
       button.setAttribute('data-index', index);
