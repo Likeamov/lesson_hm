@@ -23,6 +23,10 @@ module.exports = appInfo => {
     },
     domainWhiteList: ['*']
   }
+  // 加密
+  config.jwt = {
+    secret: '!%jzt123456'
+  }
   // 
   exports.sequelize = {
     dialog: 'mysql',
