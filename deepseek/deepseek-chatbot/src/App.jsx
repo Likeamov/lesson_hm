@@ -69,12 +69,12 @@ const App = () => {
       // console.log(response);
       setConversation((prevConversation) => {
         prevConversation[prevConversation.length - 1].answer = response
+        localStorage.setItem('conversation', JSON.stringify(prevConversation))
+        // 返回一个全新的状态 独立状态
+        return [
+          ...prevConversation
+        ]
       })
-      localStorage.setItem('conversation', JSON.stringify(prevConversation))
-      // 返回一个全新的状态 独立状态
-      return [
-        ...prevConversation
-      ]
     } catch(error) {
       console.warn(error);
     } finally {

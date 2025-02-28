@@ -30,7 +30,7 @@ module.exports = appInfo => {
     port: '3306',
     database: 'zhangben',
     username: 'root',
-    password: 'Codingdream123',
+    password: '123456',
     define: {
       timestamps: false, // 自动生成时间戳
       freezeTableName: true, // 表名不自动加s

@@ -33,6 +33,30 @@
 
 - json-server 是一个支持restful api 设计的数据服务器
 
+- 全栈防抖
+  - 前后端分离 解耦
+   - 前端 live-server 5500
+    fetch url 
+   - 后端 json-server 3001
+    url 接口服务
+   - api 接口
+- filter,map
+  - 都是Array.prototype 上的方法, 所有的数组都有
+  - filter 数组进行过滤, 回调函数的返回值是否为true
+  - map 数组进行映射, 回调函数返回值为新的数组 原有数组不能满足需求
+  - forEach 迭代每一项 不需要返回
+
+- 防抖 
+  - 将要执行的函数交给一个的bounce()高阶函数优化
+  - 减少执行的次数 只执行连续输入的最后一次
+  - 定时器 本次关掉上一次的定时器
+
+  
+
+
+
+  
+
 
 
 
