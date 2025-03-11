@@ -1,13 +1,13 @@
 <template>
-    <div>
-       <Little />
-    </div>
+  <div>
+    <Little />
+  </div>
 </template>
 
 <script setup>
 import Little from './Little.vue'
 </script>
 
-<style scoped>
+<style  scoped>
 
 </style>

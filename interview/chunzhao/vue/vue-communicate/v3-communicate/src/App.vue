@@ -4,7 +4,7 @@
     <ParentTwo/>
     <ExposeParent/>
     <VModelParent/>
-    <ProvideParent/>
+    <ProvideParent />
   </div>
 </template>
 

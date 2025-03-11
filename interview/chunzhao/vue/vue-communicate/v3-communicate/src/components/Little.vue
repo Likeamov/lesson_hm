@@ -1,14 +1,14 @@
 <template>
-    <div>
-     {{ name }}
-    </div>
+  <div>
+    {{name}}
+  </div>
 </template>
 
 <script setup>
-import { inject } from "vue"
+import { inject } from 'vue'
 const name = inject("name");
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>

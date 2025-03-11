@@ -1,18 +1,18 @@
 <template>
-    <div>
-      ExposeChild
-    </div>
+  <div>
+    ExposeChild
+  </div>
 </template>
 
 <script setup>
 defineExpose({
-    childName: "child",
-    someMethod() {
-        console.log("child method")
-    }
+  childName: 'child',
+  someMethod() {
+    console.log('someMethod');
+  }
 })
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
 
 </style>
