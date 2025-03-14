@@ -83,7 +83,7 @@ const msgController = ref<msgItem[]>([
   {
     type: 1,
     content:
-      "✨✨✨\n \t欢迎使用AI小助手！我是您的专属智能导游——小影🤖🚀",
+      "✨✨✨\n \t欢迎使用AI小助手！我是您的专属智能助手——小影🤖🚀",
   },
 ]);
 

@@ -58,3 +58,4 @@ export const typeMap = {
     icon: 'qita'
   }
 }
+export const getBillDetail = async (id) =>  await axios.get(`/bill/${id}`)

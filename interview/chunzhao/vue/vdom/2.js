@@ -1,18 +1,20 @@
-const oldChildren = n1.children
-const newChildren = n2.children
+const oldChildren = n1.children //列表
+const newChildren = n2.children // 列表
+// key 找到节点 移动性能更好
+// 简单diff 算法
+let lastIndex = 0; // 新的VDOM 中最后一个被排好序的节点索引(旧)
 
-let lastIndex = 0
 // 遍历新的 children
 for (let i = 0; i < newChildren.length; i++) {
     const newVNode = newChildren[i]
     let j = 0
-    let find = false
+    let find = false;
     // 遍历旧的 children
     for (j; j < oldChildren.length; j++) {
       const oldVNode = oldChildren[j]
       // 如果找到了具有相同 key 值的两个节点，则调用 patch 函数更新
       if (newVNode.key === oldVNode.key) {
-        find = true
+        find = true;
         patch(oldVNode, newVNode, container)
         
         

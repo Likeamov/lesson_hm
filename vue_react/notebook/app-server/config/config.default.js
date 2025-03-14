@@ -25,7 +25,7 @@ module.exports = appInfo => {
   }
   // 加密
   config.jwt = {
-    secret: '!%jzt123456'
+    secret: '!%shunwuyu123$'
   }
   // 
   exports.sequelize = {
@@ -34,7 +34,7 @@ module.exports = appInfo => {
     port: '3306',
     database: 'zhangben',
     username: 'root',
-    password: '123456',
+    password: 'Codingdream123',
     define: {
       timestamps: false, // 自动生成时间戳
       freezeTableName: true, // 表名不自动加s
