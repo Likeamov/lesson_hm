@@ -3,7 +3,8 @@
 // node 早期的 commonjs 模块化
 const request  = require('request-promise')
 // 解析request 拿到的html 字符串
-const cheerio = require('cheerio')
+const cheerio = require('cheerio');
+const { CsvStringifier } = require('csv-writer/src/lib/csv-stringifiers/abstract');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter
 
 // 常量 大写 配置项
@@ -18,12 +19,35 @@ request(HOT_URL)
         // 内存里模拟浏览器 cheerio
         const $ = cheerio.load(html);
         const hotList = [];
-        $('table tr').each((index, element) => {
-            console.log(index, element);
+        $('.jc table tr').each((index, element) => {
+            //console.log(index, element);
+            //${node}.find
+            const rank = 
+            $(element).find('td:nth-child(1)').text().trim()
             const title = 
-            $(element).find('td:nth-child(2)').text().trim()
-            console.log(title);
+            $(element).find('td:nth-child(2) a').text().trim()
+            const heat = 
+            $(element).find('td:nth-child(3)').text().trim()
+            const link = 
+            $(element).find('td:nth-child(2) a').attr('href').trim()
+             hotList.push({
+                rank,
+                title,
+                heat,
+                link
+             })
         })
-
+        const csvWriter = createCsvWriter({
+            path:'hot_list.csv',
+            header:[
+                {id:'rank',title:'排序'},
+                {id:'titke',title:'标题'},
+                {id:'heat',title:'热度'},
+                {id:'link',title:'链接'}
+            ]
+        })
+        csvWriter
+        .writeRecords(hotList)
+        .then(()=>console.log('CSV file has been saved.'))
     })
 

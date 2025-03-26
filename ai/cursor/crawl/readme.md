@@ -1,5 +1,7 @@
- - node的模块系统
-     依赖 request-promise 发送 http 请求,得到html字符串
-     cheerio 内存中的浏览器 load(html),得到查询器（$）
-     $('table tr')
-     
+# Cursor AI 代码生成神器
+
+-  Qwen-coder 模型
+    Qwen/Qwen2.5-Coder-32B-Instruct
+
+- 代理 
+   开发需求-> LLM （chat -> AI编辑器）
