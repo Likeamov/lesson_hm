@@ -49,7 +49,7 @@
   - 使用key 优化列表渲染
   
 
-## 缓存策略
+- ## 缓存策略
   - localStorage sessionStorage cookie
   - 文件缓存 强缓存和协商缓存
 
@@ -70,7 +70,13 @@
     减少J首屏S/CSS 资源大小
   -  Lighthouse
   
-
+- 用setTimeout模拟setInterval 会有什么问题
+- promise 实现并发控制
+- promise 红绿灯
+- 手写promise.allSettled
+- 手写Promise
+- http 2.0 多路复用 是不是越多越好？会有上限吗？
+- cursor 和 windurf 用的多吗？占比多少？ trea用过吗？
 
 
 
